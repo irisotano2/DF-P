@@ -2,8 +2,11 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+import os
+file_directory = os.path.dirname(os.path.abspath(__file__))
 
-df = pd.read_csv ('../../../data/Datafiniti_Fast_Food_Restaurants_Jun19.csv')
+path = os.path.join(file_directory, '../../../data/Datafiniti_Fast_Food_Restaurants_Jun19.csv')
+df = pd.read_csv (path)
 dfres = df[['name', 'province']].value_counts().reset_index().head(100)
 
 
